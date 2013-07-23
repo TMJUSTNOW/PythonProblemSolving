@@ -1,5 +1,5 @@
 class TreeNode(object):
-  def __init__(self,data,left=None, right=None):
+  def __init__(self,data=None,left=None, right=None):
     self.data = data
     self.left = left
     self.right = right
@@ -35,12 +35,12 @@ def dfs(root):
   while stack:
     node = stack.pop()
     print node.data
-    if node.left:
-      stack.append(node.left)
     if node.right:
       stack.append(node.right)
-# tree traversal 
+    if node.left:
+      stack.append(node.left) # pop left first
 
+# tree traversal 
 c = TreeNode(6)
 d = TreeNode(4)
 e = TreeNode(5)
