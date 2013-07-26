@@ -21,8 +21,7 @@ def bfs(root):
   queue = [root]
   while queue:
     # print [i.data for i in queue]
-    node = queue[0]
-    queue = queue[1:]
+    node = pop(0)
     print node.data
     if node.left:
       queue.append(node.left)
@@ -40,7 +39,6 @@ def dfs(root):
     if node.left:
       stack.append(node.left) # pop left first
 
-# tree traversal 
 c = TreeNode(6)
 d = TreeNode(4)
 e = TreeNode(5)

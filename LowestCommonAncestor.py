@@ -14,6 +14,22 @@ def LowestCommonAncestor(root,node1,node2):
       root = root.right
     else:
       return root
+# given two people's birth certificate, find the closest commom ancestor of them
+# compare to the previous questions, if the two nodes shouldn't be either of the node
+def LowestCommonAncestor2(root,node1,node2):
+  while root:
+    if root.data > node1.data and root.data > node2.data:
+      if root.left == node1 or root.left == node2:
+        return root
+      else:
+        root = root.left
+    elif root.data < node1.data and root.data < node2.data:
+      if root.right == node1 or root.right == node2:
+        return root
+      else:
+        root = root.right
+    else:
+      return root
 
 # create a binary search tree
 '''  
@@ -38,3 +54,5 @@ root = TreeNode(6,d,e)
 #         right=TreeNode(8)))
 ancestor =  LowestCommonAncestor(root,a,d)
 print ancestor.data
+ancestor2 = LowestCommonAncestor2(root,a,d)
+print ancestor2.data
