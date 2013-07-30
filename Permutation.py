@@ -51,5 +51,27 @@ def Foo(arrays, values=None):
     arrays.append(array)
 Foo(arrays)
 
+def Permutation1(string):
+  # chars = string #list(string)
+  out = []
+  used = [False for x in string]
+  # length = len(string)
+  Permute(string,out,used)
+def Permute(string,out,used):
+  if len(out) == len(string) : 
+    print "> %s" % "".join(out)
+    return
+  for i in range(len(string)):
+    if used[i]:
+      continue
+    out.append(string[i])
+    used[i] = True
+    Permute(string,out,used)
+    used[i] = False
+    out.pop()
+Permutation1('erty')
+ 
+  
+
 
 

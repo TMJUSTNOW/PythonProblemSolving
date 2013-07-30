@@ -39,7 +39,7 @@ class MinHeap(object):
       i = p
       p = (n - 1)/2
     return self.items
-
+  # siftdown the element place on the first position in the heap
   def siftdown(self,n):
     i = 0
     while True:
