@@ -2,22 +2,19 @@
 
 # placeing n queens on n*n chessboard on two queens attack each other
 # the solution requires that no two queens share the same row, column, or diagonal
-from Board import *
-
+import Board
 import unittest
 
+class QueenBoard(Board.Board):
 
-class QueenBoard(Board):
-
-  def __init__(self, numQueens=8):
+  def __init__(self, num_queens=8):
     super(QueenBoard,self).__init__(
-        numRows=numQueens, numCols=numQueens, initChar=' ')
-
+        num_rows=num_queens, num_cols=num_queens, init_char=' ') 
   @property
-  def numQueens(self):
-    return self.numRows
-
-  def canPlaced(self, point):
+  def num_queens(self):
+    return self.num_rows
+  
+  def placed(self, point):
     '''
       Determine whetheer the queen can be put on this space
       
@@ -27,32 +24,47 @@ class QueenBoard(Board):
       Returns:
         True if a queen can be placed on that position.
     '''
-    if not self.IsValid(point):
+    if not self.valid(point):
       return False
     # whether there are queens in the same row, column and diagonal
     # get all the position for the queens
-    for y in range(self.numRows):
-      for x in range(self.numCols):
-        if self[Point(x, y)] != 'Q':
+    for row in range(self.num_rows):
+      for col in range(self.num_cols):
+        if self[Board.Point(row, col)] != 'Q':
           continue
-        if (y == point.y or x == point.x or
-            abs((y - point.y) / (x - point.x)) == 1):
+        if (row == point.row or col == point.col or
+            abs((row - point.row) / (col - point.col)) == 1):
           return False
     return True
 
-  def Solver(self):
+  def solver(self,n):
     '''
+      Solve the n queeen problem
+      Looping throught the rows
+
+      Args: 
+        n: the number of rows of the board
+      Return:
+        list of all the solution
+    '''
+    # if n == 0:
+    #   return [[]]
+    # prev = self.solver(n-1)
+    # solutions = []
+
+    # for sol in prev:
+    #   for col in range(self.num_cols):
+    #     current = Board.Point(n, col)
+    #     if self.placed(current):
+    #       solutions.append(sol + [current])
+
+    # return solutions
     
-    '''
-
     pass
-
-
 def main():
-  q = QueenBoard(8)
-  pos = Point(2,3)
-  q.placeQueen(pos)
-  print q
+  q = QueenBoard(4)
+  # pos = Point(2,3)
+  print q.solver(4)
   # for qu in q.posQueens:
   #   print qu
 

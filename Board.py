@@ -1,27 +1,32 @@
-# position for the squre in the chess
+'''
+  Base class Board for creating all the board applications 
+'''
 class Point(object):
-
-  def __init__(self, x, y):
-    self.x = x
-    self.y = y
+  '''
+    Position for the square on the board with row and column
+  '''
+  def __init__(self, row, col):
+    self.row = row
+    self.col = col
 
   def __str__(self):
-    return 'x: %d, y: %d' % (self.x, self.y)
+    return 'row: %d, col: %d' % (self.row, self.col)
 
-# create m*n Board with initial character on the board
 class Board(object):
-  # create board based on num of rows and columns,default is 3*3 
-  def __init__(self, numRows=3, numCols=3, initChar='x'):
-    self.initChar  = initChar
-    self.numRows = numRows 
-    self.numCols = numCols
-    self._rows = [[initChar for i in range(numCols)] for j in range(numRows)]
+  '''
+    Create Board with initial character
+  '''
+  def __init__(self, num_rows=3, num_cols=3, init_char='x'):
+    self.init_char  = init_char
+    self.num_rows = num_rows
+    self.num_cols = num_cols
+    self._rows = [[init_char for i in range(num_cols)] for j in range(num_rows)]
 
   def __getitem__(self, point):
-    return self._rows[point.y][point.x]
-  
+    return self._rows[point.row][point.col]
+
   def __setitem__(self, point, letter):
-    self._rows[point.y][point.x] = letter
+    self._rows[point.row][point.col] = letter
 
   def __str__(self):
     '''
@@ -29,7 +34,7 @@ class Board(object):
     '''
     return 'Board:\n' + '\n'.join(['|'.join(row) for row in self._rows])
 
-  def isEmpty(self, point):
+  def empty(self, point):
     '''
       Determine whether the space is isEmpty
 
@@ -37,20 +42,20 @@ class Board(object):
         point: position for the space on the board with row and column
 
       Return:
-        True if the space in this point is empty 
-
+        True if the space in this point is empty
     '''
-    return self._rows[point.y][point.x] == self.initChar
 
-  def IsValid(self, point):
-    """Determine whether a point is valid.
+    return self._rows[point.row][point.col] == self.init_char
+
+  def valid(self, point):
+    '''Determine whether a point is valid.
 
     Args:
       point: position for the space on the board with row and column
 
     Returns:
       True if the position exist in the board
-    """
-    return (point.x >= 0 and point.x < self.numCols and
-            point.y >= 0 and point.y < self.numRows)
-
+    '''
+    
+    return (point.row >= 0 and point.row < self.num_rows and
+            point.col >= 0 and point.col < self.num_cols)

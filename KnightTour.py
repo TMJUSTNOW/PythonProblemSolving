@@ -1,14 +1,16 @@
 #!/usr/bin/env python
 
-# A knight's tour is a sequence of moves of a knight on a chessboard
-# such that the knight visits every square exactly once. 
-# If the knight ends on a square that is one knight's move from the beginning square (so that it could tour the board again 
-# immediately, following the same path), the tour is closed, otherwise it is open.
+'''
+A knight's tour is a sequence of moves of a knight on a chessboard
+such that the knight visits every square exactly once. 
+If the knight ends on a square that is one knight's move 
+from the beginning square (so that it could tour the board again 
+immediately, following the same path), the tour is closed, otherwise it is open.
 
-# warnsdorff's rule 
-# move the knight to the squere whose next move has fewest onward moves.
+warnsdorff's rule 
+move the knight to the squere whose next move has fewest onward moves.
+'''
 from Board import *
-
 import sys
 import unittest
 
@@ -19,30 +21,43 @@ MOVES = [{'x':-2, 'y':-1},{'x':-1,'y':-2},{'x':1,'y':-2},{'x':2,'y':-1},
   {'x':2,'y':1},{'x':1,'y':2},{'x':-1,'y':2},{'x':-2,'y':1}]
 
 class KnightsTourBoard(Board):
-  def __init__(self, numRows=8, numCols=8):
+  '''
+    create board for knight tour including the rule for solving knight tour game
+  '''
+  def __init__(self, num_rows=8, num_cols=8):
     super(KnightsTourBoard, self).__init__(
-        numRows=numRows, numCols=numCols, initChar=" ")
+        num_rows=num_rows, num_cols=num_cols, init_char=" ")
 
-  # def __str__(self):
-  #   return "%d,%d" % (self.row, self.col)
-
-  # check whether the knight can place here if it is not visited before
   def canPlaced(self,point):
+    '''
+    check whether the knight can place here if it is not visited before
+    '''
     return self[point] != 'K'
 
-  # given the current position for the knight, return the available next moves
   def nextMoves(self,point):
+    '''
+      given the current position for the knight, return the available next moves
+    '''
     next_moves = []
     for move in MOVES:
       nextPos = Point(point.row + move['y'], point.col + move['x'])
       # print "%d,%d" % (nextPos.row, nextPos.col)
       print nextPos
-      if self.IsValid(nextPos) and self.canPlaced(nextPos):
+      if self.isValid(nextPos) and self.canPlaced(nextPos):
         next_moves.append(nextPos)
     return next_moves
 
-  #knight tour map for all the moves
   def knightTour(self,path,move):
+    '''
+      Determine whether there is a path for the knight to traverse the board
+
+      Args:
+        path: valid moves for the knight
+        move: the current move
+
+      Return: 
+        True if there is a solution for the knight
+    '''
     if VERBOSE:
       print self
     maxSteps = self.numRows * self.numCols
