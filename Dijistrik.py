@@ -1,0 +1,3 @@
+'''
+dijistrik's shortest path
+'''
