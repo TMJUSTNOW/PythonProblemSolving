@@ -1,0 +1,549 @@
+
+given the list of integers,find the smallest index of the repeated number
+1,2,3,2,4,1
+2.Given a number k, generate all the possible sets.The sum of the set is k
+all of them are integer给一个数字
+比如 6
+[1,5]
+[1,1,4]
+[1,1,2,2]
+[1,1,1,3]
+[1,2,3]
+[1,1,1,1,2]
+[1,1,1,1,1,1]
+[2,4]
+[2,2,2]
+1. 有个机器画图，RBG 3色的坐标化成一个数字比如0-x是red，x-y是blue，y-z是
+green。
+细分成小颜色比如 0 < 255 < 1000 <x都是属于红色，但是有点小差别。
+clustering 这些颜色，不需要一定ordering.
+3. leetcode search for a range的变种。
+给一组sorted string组， 给另外一个长度为k的string prefix，返回prefix是这个
+string组里面index最小的string的prefix string。如果没有找到就返回-1.
+要求用klogn, n是string组的size。
+4. design 一个blog，能post东西，能comment，能reply comment。
+1. 求两个vector的intersection
+2. 找到linkedlist中倒数第K个点
+3. DP问题，unique path(leetcode)的变形，但是要复杂些，找到拥有最
+大值路径中的最小点。
+G:
+电话面板的一道题，输入是一个List<Integer> digits, 一串数字，每个数字对应
+可以翻译为3个character。翻译后的结果的permutation是否可以组成一个单词，如果
+可以，保存为结果集，输出。
+
+Example:
+2--> 'a','b','c'
+8--> 't','u','c'
+
+如果输入是228，
+228 --> 'aat','abu',...
+
+可以用2个函数
+digits2char(int d)
+isWord(String u)
+
+输出是'aat','abu',...中所有的是单词的结果。
+Set<String> phoneWords(List<Integer> digits){
+}
+
+1.假设你是harry potter，在grid的左上角，你现在要走到右下角，grid中有
+正数也有负数，遇到正数表示你的strength增加那么多，遇到负数表示strength减少那
+么多，在任何时刻如果你的strength小于等于0，那么你就挂了。在一开始你有一定的
+初始的strength，现在问这个初始的strength最少是多少，才能保证你能够找到一条路
+走到右下角。每一步只能向右或者向下。
+1，给两个同样长度排序好的数组，找第K个最小的数。扩展，给两个很长的数组，
+给定其中一个数，找离这个数距离最短的第K个数
+2， 一个java的class,有一个变量是一个list, list可以里面的element可以
+是数，也可以是list, 实现hasNext, next， 这个要考虑list中含有空list的情况
+一个数组里面返回其中任意一个数，实现，要考虑多线程，
+3, 给二叉树，每个节点含有一个string, 要求serialize 和deserialize
+4. 有一个网站，如何判断这个网站的地理信息
+下午两个
+4， 一个二维数组代表了城市中的坐标，给定N个人的坐标，求坐标使所有人
+走到这个坐标的距离的和最小，只可以横着或者竖着走，不可以斜着走
+5， 如何判断电脑里重复的文件，指内容重复，扩展，如果这些文件分布在
+好多机器上怎么办
+6. 一个特殊的国家忌讳7这个数字，所有包含7的数字他们都不用，改用下一个数字，
+比如7他们用8代替，17用19代替，给定这个国家的数字，翻译成我们用的数字。
+1. 什么是reference counting，主要用在哪儿
+2. Given a file with a lot of fruit name, remove duplicates
+   E.G. <input>
+        banana
+        orange
+        apple
+        orange
+        orange
+        pear
+       
+        <output>
+        banana
+        orange
+        apple
+        pear
+
+3.not coding Given a file A with a lot of valid phone numbers (several million
+ phone numbers), and another file B with some phone numbers, find out whether the 
+phone number in B is in A also.
+build hashtable for b, look through A to see whether b is there to break earlier
+4. not coding You are in a social networking, and you want to share a picture 
+to your friends and your friends of friends. How can you find out your friends and 
+your friends and friends efficiently.
+return set(friendsOf(friend1) in friendsOf(me))
+1. 一个5万行的CSV文件，用python写出结果同时满足:
+   1> 交换最后一列和第一列的位置
+   2> 拆分成每个500行的小文件
+2. 一个比赛有n个人参加，1 vs. 1，比赛结果全靠实力，选手实力提前不知，写code
+找出水平第二高的选手
+3. 设计一个找租房的网站
+4.一个数字数组，给一个window，长度k，window从数组头开始往后滑动，每次滑动一
+个，求每次窗口中的最大值。
+3, 4, 5, 7, 3, 5, 2, 9 
+k = 3
+print  “5 7 7 7 5 9”
+
+该题有什么优化解么？ 楼主的解法是：
+保存当前window的最大值，和 count；
+每次比较出窗口int是否等于最大值，如果等于，count--；
+进窗口int是否大于最大值，如果大于，替换最大值，count=1;
+
+问题是：当count=0时，需要一个O(k)的扫描。确定当前窗口最大值。
+
+有没有优化解呢？
+Q.3)    
+How can you copy files from a Linux host to another across the continent 
+using basic tools? (Extra points for a reliable copy!)
+How would you change your implementation if you had to move 50,000 small 
+text files in the same directory in one go?
+Q.4)    
+When designing a database application, what considerations should go into 
+deciding whether to use foreign keys?
+Q.5)    
+Under what circumstances is it a good idea to implement a O(N^2) algorithm 
+when there exists a known O(N) solution?
+Q.6)    
+Under what circumstances is it not necessarily a good idea to use the source
+code of an open source project even if your company allows it?
+
+1.Finding Missing int,but it is int arr string.
+123456891011 output 7
+9991000100110021004 output 1003
+主要就是在分string成array of substring的时候，长度会从999的3变成1000的4，如
+果从1到100000之间缺一个数，得考虑所有9，99等的情况来分string。感
+觉用recursion有可能，但也不知道怎么写。
+电面(45分钟, 前3题描述算法就行, 只有最后一题写code)
+1. from 1 to N one number appear twice, others once, find that number, (how 
+about two numbers? 500 numbers appear twice?)
+2. a billion number, find K smallest numbers . 面试官居然不知道不fit memory
+也可以linear搞定, 真汗  
+3. how DNS return IP lookup request.
+4. write atoi, allow input 1200.00, not 1200.01, can you handle -2^31? if 
+not, how to fix it?
+onsite
+1. 一个矩阵, 把所有非0元素按connected component分组打印出来, 4-neighbors算连通
+2. thesis presentation
+3. design spreadsheet, 每个单元格可以是int, 可以是对其他单元格的引用, 可以是
+算术表达式, 加减乘除, 表达式中可以有对其他单元格的引用, 要能把值求出来, 这题
+居然是lunch interview, 真啃爹, 饭都没吃完
+4. design chess game, 人机对战
+5. print matrix in spiral order. 这个简单, 但是follow up搞不定, how to 
+minimize cache misses when you go downward and upward?
+6. leetcode, jump game II
+onsite六轮面试之间连break都没有
+1. 黑白格子矩阵，黑的团在一起，找出共有几个团，或者最大团（这个常见）。
+follow up: 面试官随意指一个团，找出跟这个团形状一样的团。（这个当初没想到很
+好的办法，用的数格子的方法。后来想到如果先建立个四叉树结构，都以左上格子为
+root, 比较就很容易，和常见的比较二叉树结构类似）
+2. 依然是0,1,2表示的格子矩阵，1表示信号基站，2表示居民，0表示空，找出离2最近
+的1。（当时LZ从是从每个1出发用DFS，不断update遇到的2之间的路径。但等写完后面
+试官认为应该用BFS，如果2已经获得1等下一次遍历就可以ignore这个1。遂慌忙更改，
+导致没做好）
+3. BT, 所有child节点有double link, 其他没有，打印出所有child节点。 
+4. 硬币问题，1分，5分，10分，25分, 给一个数，比如56，找出和是56的最少的硬币
+数组合。(dp)
+
+5. BST, 实现Iterator接口, 方法有boolean next(), Node getNext()。
+
+6. 
+id, name, score,
+1,  A,    50
+2,  B,    70
+3,  C,    80
+4,  D,    60
+5,  E,    40
+用O(1)找出最高分数的id,
+用O(lgn)更新分数
+(hash+heap)
+
+1. 求用元素周期表中的每个元素代号，能评出的最长单词。
+比如：T = { Si, C , K }. 结果为 sick. 
+(大小写无关， 每个元素可用几次， 怎么判断单词/已给字典， ... 这些前提假定都
+要与面试官讨论)
+
+2. 两棵二叉树，判断是否存在公共结点。
+只想到了O(M*N). 最多也就能用hash表处理一颗树，优化到O(1) * O(N). 空间换时间
+，空间是O(M). 不知道有什么好的办法？？？
+
+3. 一堆色子，每面随意染色，判断是否能叠成一个立方柱，4面都同色。
+当时现场有些懵（最后一轮），主要没想清楚多少种状态（色子可以旋转）。
+面试官提示后，又说我多算了几种。他认为是3种就行，我说的6种中，有2种重复了。
+回来后仔细想了想，其实一样的。他说的3种中，每种可以双向旋转，所以一共 3 * 8 
+= 24.
+而我一开始想的6种，每种如果规定只能按右手螺旋法则旋转，也就是 6 * 4 = 24. 其
+实是一样的。
+这题没见过，一共只给了25分钟左右想，感觉时间挺紧的。
+--
+Aoccdrnig to a rscheearch at an Elingsh uinervtisy, it deosn’t mttaer in 
+waht oredr the ltteers in a wrod are, the olny iprmoetnt tihng is taht frist
+and lsat ltteer is at the rghit pclae. The rset can be a toatl mses and you
+can sitll raed it wouthit porbelm. Tihs is bcuseae we do not raed ervey 
+lteter by itslef but the wrod as a wlohe. 
+
+1.平面上有N个员工，C个城市，位置都已知道。
+现在想设置M个Office在这C个城市里面（一个城市可以有多个Office），每个Office可
+以容纳(N/M)个员工。
+请问如何设置这些Office，使总的员工Commute的距离最短。 
+
+我的回答是brute force： 要设置M个Office，每个Office可以在C个城市中任何一个。
+所以总共有C**M (power) 种方案。
+
+有没有更有效的解法？  
+2.给一个n*n的矩阵，每个元素是一个字母，元素有可能是重复的，给你一个很大的字典
+，和一堆要找的单词 有长有短，找的时候只能上下左右移动，问如何快速度的找出来
+所有单词？
+有什么高级算法吗？求指点
+1. 设计tiny url这样的服务。主要考虑哪些问题。用了hashtable，多台server分布等
+2. 设计product ad analytics service。就是提供给用户的ad data
+3.coding：check bst is symmetric or not
+4. bar raiser，实现min stack，其他简历相关问题，深入探讨
+5. past projects。coding：solve sudoku game
+6.设计product ad analytics service。就是提供给用户的ad data。
+
+今天在careercup上看到一个题目。Given an unordered array of positive integers
+, create an algorithm that makes sure no group of integers of size bigger 
+than M have the same integers. 
+想到的死办法就是统计每个数字的个数之后放到一个heap里面去，每次取最大的一个，
+要是连续取了M次了，就取第二大的。每次可以比较一下剩下的最大数目的数字k和所有
+剩下来的元素n。 如果k比 n/(M+1)*M大的话就直接fail..
+不知道还有什么好办法没有
+1.用户下单的流程是Detail Page->Add to cart->Credit card/address information-
+>Place order.
+
+假设只有一本书，两个用户，怎么保证Add to cart的时候谁有优先权，Place order的
+时候后台程序应该有什么注意事项。
+2.设计一个搜索的Desktop Application,假设用户有上百万个XML files,存储所有
+product的信息，用户也是工程师，很熟悉电脑，可以设计只用Command Line操作。用
+户可以下载这个程序到workstation，然后数据可以上传到Amazon的server，现在从后
+端的数据库到前端的UI等，设计一整套的解决方案。
+3.就是给一个matrix，宽度固定w，长度比较长h，里面有白色的格子
+和黑色的格子，分页的时候只能从一整行都是白色的格子地方分开。
+G家：
+phone screen interview 
+
+First round：
+1. check if a string is anagram  （geeks很喜欢问这个问题，遇到说话磕磕绊绊但
+发音标准的哥哥，应该就是geek了）
+2. Given a matrix which contains black and white grids, use a method to find
+out if the white grids are connected or not, if yes, return true.
+第一次想的是recursion，后来写的时候用的是DP，但是发现不对，想了一下，用了图
+论的解法，满打满算的写完了。之后不到半个小时就安排了第二次面试
+
+Second round:
+1.  Design an API which is used for a cache big data
+2.  Given a string, find longest substring which contains just two unique 
+characters. 
+大哥哥迟到了5分钟，中间电话还断掉了几分钟，总共45分钟的面试，一下子缩短成了
+35分钟，第二题想到brute force解法，还有DP解法，不过时间不够没写完，感觉自己
+说得多，写的少。估计是因为G家要求写完整的代码这个原因给挂掉了。。。看来我还
+欠火候呀，再接再厉！
+
+等了差不多一周，主动emailHR哥哥，他打电话过来说他在找有没有更适合我的组，因
+为二面的国人大哥哥不建议我继续面下去了。。。
+A家：
+电面两道题，很简单，多跟面试官沟通，我的面试官是一geek女，感觉特技术，
+写完code还要优化，这点很重要，要详细解释自己的思路，脑子一定要清楚哦~
+第二天就onsite了（我的感觉是，只要code写得好，立马有反馈，一般三四天
+都没反应的，应该就没戏了）
+onsite
+1. power（ int a, int b）
+2. find ways to make coin change
+3. print a binary tree in Zig Zag level order
+4. how to decide which data structure can be used for special situations
+5.  level search tree, need more than one methods
+6. design a battleship game
+7. given a wrong prototype,  redesign it
+8. Sliding window maximum 
+9. hiring manager ask details about my projects
+
+E 家：
+1. max height of a tree
+2. big data, find the missing number  （这个没答好，国人大哥哥很生气）
+
+考到了网络公司最爱的题
+H家：
+Skype interview 
+1. online java test + transcripts
+2. with chief engineer, talk about some basic concept of computer science,  
+    such as design a file system, write regular expression...
+    问题很宽泛，数据结构，算法，设计，编程语言，网络知识
+3.  java questions with special case , need to compile，
+     印度老爷爷，很和蔼可亲，skype interview之后还发了一个很有用的java连接给我
+4. with chief engineer again
+    design card game，write shuffle algorithm. 
+    check if a string is anagram, compile with their test cases
+
+面试一直都有条不紊的进行着，四轮下来都是positive的feedback，可之后就杳无
+音讯了，不知道他们内部出了什么状况。。。
+E家：
+电面没有技术含量，只是双方互相了解
+online test比较多，最好在2-3个小时之内都完成。
+数学+逻辑+2分钟数学+4 algorithm questions
+其他的careercup上都有，有一道很特别，打印机分页算法，要求输出页数最少的分页
+方法。
+
+RF家：
+integer to alpha，要用DP做
+A online test
+1. detect cycle in LL
+2. struct TestRest{
+       int studentId;
+       string date;
+       int score;
+    }
+    implement func map<int, double> calculateFinalScore(vector<TestResult> 
+results)
+求出 每个学生的finalScore， finalScore 是 一个学生所有score里 最
+大的5个的平均值。
+3. merge two sorted lists
+1. 两个输入，一个是description（String）， 另一个是Negative Words（List<
+String>）.
+description 是一个非常长的String， 例如一段话。  要求其中不能有negative 
+words。如果有 则输出哪里negative word。 没有则输出good。
+回答 把description分成每一个word，然后比对 negative words
+followup： 如果 negative words 不是一个单词 而是例如“is bad”。这种 要怎么
+做。
+2. 给一个数组，从1到n， 打乱顺序。 其中有个一元素是错的，求那个元素的index。
+例如  531226.
+O(1)空间。  回答了用 bit运算 （XOR方法）。  followup 有没有其他方法，就想不
+出来了。
+3.给一个很大的数组，取前k个最小的数。
+我回答 建一个priority queue， 长度为k， 然后遍历整个数组，每次都维护priority
+queue。  但是每有一个元素，worst case就要比较k次才能发现哪个是最大的。 复杂
+度是O(k*n)。
+感觉这1,3两道题比较类似，都是有一个是大数据， 然后进行比较。 遇到这样的就歇
+菜，完全没啥思路。
+顺便问一下 第一题能用 suffix树吗？ 个人感觉那样是不是更复杂了呢？ 
+
+Google题目：
+1. Mimimun spaning tree of a all connected graph. Need to use Fibo heap to reduce complexity.
+2. Game of Life, one transition. (2.1 use n*n matrix, reduce storage space 
+to 3*n. 2.2 use other storage method)
+3. String compressor that turns "123abkkkkkc" to "123ab5xkc". Decompressor 
+is already written and must remain unchanged. take into account of strings 
+like: "123xk", "123xx" ...etc as input
+4. Youtube mash design, how to do a video version of Mark’s FaceMash. SQL 
+schema, recommendation/ranking algo design
+
+Facebook题目：
+电话
+1. Big Integer multiplication. (Leetcode OJ过了的对方不接受, Optimization 
+required, how to do 8 digits*8 digits, etc).
+2. Binary tree level order traversal. (leetcode 2*)
+3. 也是leetcode 3*原题，不记得了
+
+Onsite
+1. Given 1->a, 2->b … 26->z. 126 -> az or lf or abf (bfs/dfs not accepted, 
+need to use DP or some tricky method)
+2. Binary tree serialization/de-serialization (leetcode 3*, 这道题pinterest
+也问了）
+3. Permutation with duplicate (leetcode 3*)
+4. Range maximum query, pre-processing
+
+LinkedIn题目
+电话
+1. pow(x,n), check boundaries, O(log(n)) (leetcode 2*)
+2. rotated binary search (leetcode 3*)
+3. hashcode() of a String in Java (why use 31 as magic number)
+4. Kth closest point to point P on a plane with N points (heap, comparator).
+5. ArrayList impl without importing ArrayList, use dynamic array
+
+Onsite
+1. IsSameTree (leetcode 1*)
+2. Word Ladder II (leetcode 4*)
+3. Text Justification (leetcode 2*)
+4. how to get top 10 Exceptions for the past 24 hours in 400 machines and 
+update every 5 minutes. General idea: Kafka + Storm. Uses sliding window, 
+hashTable, heap. (这道题pinterest也问了）
+5. Tell me in depth about the project you’re most proud of (45 mins).
+6. How would you improve LinkedIn Influencer to enter international market. 
+
+M:
+2. remove duplicate (leetcode 2*) 似乎两行可以写
+就是写个code实现least unique positive integer game。当时看着十分game theory
+的说。这个game基本上是这样的，只是player人数不确定，会dynamical增加
+
+Amazon online test
+1. 求两个vector的intersection
+2. 找到linkedlist中倒数第K个点
+3. DP问题，这个题一开始想偏了，导致时间不太够了，后来想出来了，代码没有完全
+写完，挺郁闷的。其实是unique path(leetcode)的变形，但是要复杂些，找到拥有最
+大值路径中的最小点。
+就是一个matrix，每个element对应一个值，从最左上角到右下角，你只能向右和向下
+移动，找到一条path，对应的sum是最大的，而且在这条path中，找到最小的element。
+4.delete loop in the linkest list
+
+
+mz 电面2轮，onsite 5轮，每轮1个小时
+
+电面1： 2sum, 2个stack实现queue
+电面2： 实现fixed size的queue， OOD设计题：2个电梯调度的设计
+onsite round 1: 在2个等长排序数组中找第k大的元素。
+有一个n*n的array，里面的数是1-n^2。找出连续递增的最长序列的长度。方向可以是
+上下左右。
+比如：
+1 3
+2 4
+
+最长的递增是3，可以是1->2->4 也可以是1->3->4
+
+round 2： 全behavior，这轮挂了，因为表示了觉得以前的工作没意思。这轮的结
+论是没有领导力。所以behavior还是要好好准备。amz很在乎的一点是leadership 
+principle
+
+round 3: map里面新增一个updateAll(int val1)，调用后，get(key)返回值都是val1
+。但是之后如果set(key, val2)后，get(key)返回值是val2.要求所有操作都o(1)。
+第二题是count sort变种，不难。
+
+round 4: OOD设计机场调度系统。这轮完全抓瞎。
+
+round 5(bar raiser): 给很多很多数，判断是否里面有重复。然后load balance算法
+的设计。这轮主要考察分布式，但是我纠结于用单机处理，给了很多单机处理的方式，
+被鄙视。
+
+amz算法题不难，但是behavior很重要，跟manager好好谈是最重要的。bar raiser要好
+好体会他想问什么，思维要开放。
+
+
+two sigma就是hr先聊聊behavior，然后online test，最后电面，电面只进行了20分钟
+，就邀请我去onsite了。问了很多基础概念，比如process和thread，latency和
+throughput之类的。不难。
+
+onsite round 1: 设计模式。java和c++区别。反转字符串，2种实现，讨论优劣。
+
+round 2: Hashmap 什么时候不如 array; interface 和 abstract class区别； tcp/
+udp 区别； socket使用； 希腊字符的编码格式； OS的什么feature使得现在做虚拟机
+更简单； float的存储； 如何test一个程序。编程题3个: fizzbuzz，找元音个数和随
+机生成密码。
+
+round 3: Java语法改错题，主要关注final的使用， instance of的使用，还有string
+的比较。熟悉这些的话，不难。编程题2个： 找list的环； 还有leetcode原题 count 
+and say
+
+round 4: C++语法。这轮表示完全不会。问了纯虚函数，和sizeof(纯虚函数类）。编
+程题随便意思了下，问了菲薄拉切数的产生；最后讨论了下java多线程的实现
+
+round 5: 这轮直接没有废话，上来问了4道题： 第一题count sort变种； 第二题写
+iterator中序遍历tree； 第三题自己建graph，找2个点是否连通； 第四题是boggle 
+game。
+
+
+http://www.mitbbs.com/article_t/JobHunting/32281037.html
+
+一个二维数组代表了城市中的坐标，给定N个人的坐标，求坐标使所有人
+走到这个坐标的距离的和最小，只可以横着或者竖着走，不可以斜着走
+
+更一般性的问题是找一个地方建distribution center,如何选址
+
+另一个问题
+given an array of strings, 求max len(A)*len(B), A B have no common character
+
+一个貌似很简单的问题，
+给定两个array of integers, the same size, 两两配对, 求绝对值之和最小
+http://mattcb.blogspot.com/2013/03/minimum-weight-of-two-groups
+没看懂解法
+
+
+面：
+1. 给一个矩阵如下：
+a b c d
+e f g h
+i j k l
+m n o p
+
+要求按如下方式打印：
+a f k p
+b g l
+c h
+d
+e j o
+i n 
+m
+
+2. 设计题：
+如果要给每个Pin加上一个price tag，怎么去evaluate这是否work？
+（1） A/B testing -> 可以有好几种，讨论优劣性
+（2） metrics to monitor -> click rate, impression, return user ratio, etc
+上门：
+1. 假设Pinterest的更新系统只能显示3条更新，怎么设计？更新可以是：用户评论、
+加新的pin，repin等等，一共可能有一千多种。讨论各种方法的优劣性
+回答：a ranking problem...
+2. 给如下的数据格式：
+<start_time, end_time, value>
+比如有一组数据：
+1, 3, 100
+2, 4, 200
+5, 6, 300
+。。。
+这些数据时间点可能有重合。在时间段2~3之间，value的和是100+200 = 300. 找出这
+组数据中最高的value和。
+回答1： 用一个数组，每个cell代表一个timestamp，然后扫一遍数据，increment相应
+的cell。-》 面试官：时间连续怎么办？有没有更好的办法。
+答案：把数据变成：<type, time, value>；然后按照时间排序。如果是start_time,就
++value，不然就-value：
+int sum = 0;
+int max = 0;
+
+// sort by time
+
+while(have more lines) {
+    if(type is start) sum += value;
+    else sum -= value;
+    if(sum > max) max = sum;
+}
+return max;
+3. 设计一个数据结构支持O(1)的insert， remove， find random（老题）
+4. java arraylist里如果满了，怎么办？为什么？
+答： make a new copy, size double. 原因是：double size的时候需要拷贝原来的n
+个数据，当当前这个长度为2*n的arraylist再满的时候，至少还需要插入n个数据，这
+样平均每个数据的cost是在O(1)级别的
+5. 怎么做weighted random sampling？（老题）
+6. 有产生5的随机数，怎么生成7的？（老题）
+7. 怎么去找log中的异常？outlier detection
+
+给一个array of int，以及一个range (low, high)，找出array中
+所有的subarray使得这个subarray的和在range之中。array可以有负数
+
+这个O(N^2),
+for i= 0 to N,
+   for j= i to N
+     check sum(i, j) is in range. // add num[j] to previous sum(i, j-1)
+1. 一个2d的黑白棋盘，黑色的格子都是连在一起的，现在给一个黑色的格子的坐标，
+请找出最小的矩形，包含所有的黑色格子
+
+2. Implement Iterator接口，但是增加一个功能，peek()返回next()的值，但是不能
+移动pointer。 constructor已经指定，就是 PeekIterator(Iterator iter)
+
+这题有个special case需要考虑
+
+然后就是原题，maxSubArr()
+3. 一个特殊的binary tree，叫full tree，定义是每个节点要么有2个children，要么
+没有。现在我们要copy一个给定full tree的形状，请写encode和decode方法
+4. 检查()序列对是否正确；
+   follow up 1： 如果有三种 ()[]{}怎么办
+   follow up 2:  "()()(" double quote里面的ignore，如何判断
+1. 给一个char[]和一个字典，求所有在字典中并且由char数组里字母构成的单词，假
+设isWord()可以直接判断某个单词在不在字典里。
+2. 数组的permutation
+3. 你会怎么设计1中的字典？
+interview 2:
+1. 8进制数的plus one
+2. 写一个树（非二叉树）的iterator,注意不是traversal，并分析复杂度。

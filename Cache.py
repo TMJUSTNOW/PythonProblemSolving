@@ -1,19 +1,23 @@
-# implement LRU cache
-# using doubly linked list
-#  null <- 1 <-> 2 <-> 3 <-> 4 ->null
 class Node(object):
+  '''
+    implement LRU cache
+    using doubly linked list
+    null <- 1 <-> 2 <-> 3 <-> 4 ->null
+  '''
   def __init__(self,pageNumbe,prev=None,next=None):
     self.pageNumber = pageNumber
     self.prev = prev
     self.next = next
-# using double linked list to create cache
 class Cache(object):
+  '''
+    using double linked list to create cache
+  '''
   def __init__(self,n):
     self.limit = n
     self.head = None
     self.tail = None
 
-  def enqueue(pageNum):
+  def enqueue(self, pageNum):
     newNode = Node(pageNum)
     if self.head is None:
       self.head = newNode
@@ -25,7 +29,7 @@ class Cache(object):
       self.head = newNode
 
   # pop the least recent used page
-  def LRU(pageNum):
+  def LRU(self,pageNum):
     #  check whether the page is in the memory
     p = Node(next=self.head)
     # if it already in the memory, move to the end
@@ -49,6 +53,3 @@ class Cache(object):
     self.tail = node
 
     return self.pop(0)
-
-
-

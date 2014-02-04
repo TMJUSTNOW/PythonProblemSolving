@@ -1,0 +1,15 @@
+you have an input string like "banana"
+you want to sort the characters in the string
+based on the order they appear in a reference string, 
+e.g., "bna" so "banana" would sort as "bnnaaa"
+ 
+def solver(ref_str,str):
+  str_list = []
+  for ref_char in ref_str:
+    count = 0
+    for char in str:
+      if char == ref_char:
+        count += 1
+    for i in range(count):
+      str_list.append(ref_char)
+  return ''.join(str_list)    

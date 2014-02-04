@@ -25,14 +25,25 @@ class Board(object):
   def __getitem__(self, point):
     return self._rows[point.row][point.col]
 
+  def get_by_pos(self,row,col):
+    return self._rows[row][col]
+
+  def set_by_pos(self,row,col,letter):
+    self._rows[row][col] = letter
+
   def __setitem__(self, point, letter):
     self._rows[point.row][point.col] = letter
+
+  def get_num_rows(self):
+    return self.num_rows
+  def get_num_cols(self):
+    return self.num_cols
 
   def __str__(self):
     '''
       Display the board with borders
     '''
-    return 'Board:\n' + '\n'.join(['|'.join(row) for row in self._rows])
+    return 'Board:\n' + '\n'.join(['[' + '|'.join(row) + ']' for row in self._rows])
 
   def empty(self, point):
     '''

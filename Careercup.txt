@@ -1,0 +1,23 @@
+Careercup
+Recursion
+1.write a method to generate the nth fibonacci number
+2.imagine a robot sitting on the upper left hand corner of an N*N grid,
+the robot can only move in two directions: right and down
+How many possible paths are there for the robot?
+FLLOW UP 
+imagine certain squares are 'off limits',such that the robot can not step on 
+them
+Design an algorithm to get all possible paths for the robot
+3.write a method that returns all subsets of a set
+4.write a method to compute all permutations of a string
+5. implement an algorithm to print all valid(e.g. properly opened and closed)
+combinations of n-pairs of parentheses
+6.implement the paint fill function that one might see on many image editing 
+programs. That is, given a screen(represented by a 2 dimensional array of 
+colors),a point,and a new color,fill in the surrounding area until you hit a
+border of that color
+7.given an infinite number of quarters(25 centers),dime(10 cents),nickes(5 cents)
+and pennies(1 cent),write code to calculate the number of ways of representing n 
+cents
+8.write an algorithm to print all ways of arranging eight queens on a chess
+board so that none of them share the same row,column or diagonal

@@ -1,9 +1,10 @@
-# sudoku:
-# Grid 9 * 9, each row and column have the 1-9 numbers occuring only once
-# each row, each column, each 3*3 subblock must all the 1-9 but unique numbers 
-# The cells which don't have numbers are filled with '.' 
-# given a solution of sudoku, check whether it is valid
-
+'''
+sudoku:
+Grid 9 * 9, each row and column have the 1-9 numbers occuring only once
+each row, each column, each 3*3 subblock must all the 1-9 but unique numbers 
+The cells which don't have numbers are filled with '.' 
+given a solution of sudoku, check whether it is valid
+'''
 class Sudoku(object):
   def __init__(self):
     self.board_rows = [['.' for i in range(9)] for j in range(9)]

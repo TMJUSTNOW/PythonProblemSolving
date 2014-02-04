@@ -1,5 +1,7 @@
-# given a string, return all the permutations based on the characters of the string
-# abc:a 
+'''
+given a string, return all the permutations
+based on the characters of the string
+''' 
 def PermutationStr(string, chars_stack=None, used_chars=None):
   if chars_stack is None:
     chars_stack = []
@@ -22,6 +24,26 @@ def PermutationStr(string, chars_stack=None, used_chars=None):
 for perm in PermutationStr("abcd"):
   print perm
 
+def Permutation1(string):
+  out = []
+  used = [False for x in string]
+  Permute(string, out, used)
+
+def Permute(string,out,used):
+  if len(out) == len(string) : 
+    print "> %s" % "".join(out)
+    return
+  for i in range(len(string)):
+    if used[i]:
+      continue
+    out.append(string[i])
+    used[i] = True
+    Permute(string, out, used)
+    used[i] = False
+    out.pop()
+
+Permutation1('erty')
+
 for a in [1,2,3]:
   for b in ['a','b','c']:
     for c in [10,11,12]:
@@ -37,41 +59,3 @@ arrays = [
     ['q', 'r', 't'],
     [3, 4, 5]
 ]
-def Foo(arrays, values=None):
-  if values is None:
-    values = []
-  if not arrays:
-    print ", ".join(str(v) for v in values)
-  else:
-    array = arrays.pop(0)
-    for a in array:
-      values.append(a)
-      Foo(arrays, values=values)
-      values.pop()
-    arrays.append(array)
-Foo(arrays)
-
-def Permutation1(string):
-  # chars = string #list(string)
-  out = []
-  used = [False for x in string]
-  # length = len(string)
-  Permute(string,out,used)
-def Permute(string,out,used):
-  if len(out) == len(string) : 
-    print "> %s" % "".join(out)
-    return
-  for i in range(len(string)):
-    if used[i]:
-      continue
-    out.append(string[i])
-    used[i] = True
-    Permute(string,out,used)
-    used[i] = False
-    out.pop()
-Permutation1('erty')
- 
-  
-
-
-

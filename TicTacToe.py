@@ -1,8 +1,15 @@
-# given the player, 'x' or 'o', check whether the player is win or not in Tic Tac Toe game
-class Board(object):
+'''
+given the player, 'x' or 'o',
+check whether the player is win or not in Tic Tac Toe game
+'''
+import Board
+
+class TicTacToeBoard(Board):
   def __init__(self):
-    self.n = 3
-    self.board = [['','',''] for i in range(3)]
+    super(TicTacToeBoard,self)__init__(
+        num_rows=3, num_cols=3, init_char=' ')
+    # self.n = 3
+    # self.board = [['','',''] for i in range(3)]
 
   def HasWon(self, player):
     """Whether the given 'player' has won."""

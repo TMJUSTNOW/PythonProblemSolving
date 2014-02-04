@@ -1,0 +1,25 @@
+
+
+void memcpy(void* dest, void* src, size_t num_bytes) {
+  int i = num_bytes;
+  if (i > 4) {
+    uint32 *dest_i = (uint32*)dest;
+    uint32 *src_i = (uint32*)src;
+    while (i > 4) {
+      *dest_i = *src_i;
+      ++dest;
+      ++src;
+      i -= 4;
+    }
+  }
+  while (i > 0) {
+    *dest = *src;
+    ++dest;
+    ++src;
+    --i;
+  }
+}
+
+
+int* d;
+d[0] = 9;

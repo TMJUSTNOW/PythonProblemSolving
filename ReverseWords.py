@@ -1,5 +1,7 @@
-# given a string, return reverse words in a string
-# 'do or do not, there is no try.' => 'try. no is there, not do or do'
+'''
+given a string, return reverse words in a string
+'do or do not, there is no try.' => 'try. no is there, not do or do'
+'''
 def reverseWords0(string):
   a = string.split(' ')
   print a

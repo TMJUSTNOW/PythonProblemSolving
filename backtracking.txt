@@ -1,0 +1,26 @@
+* Each function has one responsibility/role.
+
+  N-Queens: Each function owns one queen. It has to try all places where to place that queen. And a common approach is to place the queen only in one row or column.
+
+  Restore IP: Each function owns one IP segment. Starting from the start of the string, split off all valid IP segments and recurse.
+
+
+* Each function has to loop.
+
+  N-Queens: A function owns one queen and one column, and so has to try placing that queen in every row in that column.
+
+  Restore IP: A function owns one segment, but there could be 1 to 3 digits in it. So it has to try out all those lengths.
+
+
+* Each function has to recurse inside the loop to an equivalent problem.
+
+  N-Queens: We place our queen at the point we want, then we recure to the next column and have him solve his problem.
+
+  Restore IP: Once we split of a 1- to 3-character IP segment, we recurse to have the rest of the string split up, too.
+
+
+* Each function has to do work with its return value.
+
+  N-Queens: Return True/False based on success.
+
+  Restore IP: Return a list of sub-solutions from the each recursive call, then combine it with what you did to get full solutions.

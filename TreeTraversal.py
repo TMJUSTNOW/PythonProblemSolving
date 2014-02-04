@@ -1,4 +1,6 @@
-# preorder, inorder,postorder traversal for the binary tree
+'''
+preorder, inorder,postorder traversal for the binary tree
+'''
 class Node(object):
   '''
     TreeNode

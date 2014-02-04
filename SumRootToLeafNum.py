@@ -1,12 +1,12 @@
+'''
+  Sum Root to Leaf Number
+'''
 class Node(object):
   def __init__(self,val=None,left=None,right=None):
     self.val = val
     self.left = left
     self.right = right
 
-'''
-  Sum Root to Leaf Number
-'''
 def SumNumbers(root):
   return SumRootToLeaf(root,0)
 

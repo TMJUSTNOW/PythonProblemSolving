@@ -1,4 +1,7 @@
-def binarySearch(sortedList, num=None, start=None, end=None):
+def binary_search(sortedList, num=None, start=None, end=None):
+  '''
+    binary search recursively
+  '''
   if num is None:
     raise Error("I can't search for nothing!")
   if start is None:
@@ -11,13 +14,16 @@ def binarySearch(sortedList, num=None, start=None, end=None):
   middleIdx = (start +  end) / 2
   middle = sortedList[middleIdx]
   if num < middle:
-    return binarySearch(sortedList,num,start,middleIdx - 1)
+    return binary_search(sortedList,num,start,middleIdx - 1)
   elif num > middle:
-    return binarySearch(sortedList,num,middleIdx + 1, end)
+    return bbinary_search(sortedList,num,middleIdx + 1, end)
   else:
     return True
-#  iteratively
-def binarySearchIter(sortedList,num=None, start=None, end=None):
+    
+def binary_search_iter(sortedList,num=None, start=None, end=None):
+  '''
+    binary search iteratively
+  '''
   if start is None:
     start = 0
   if end is None:
