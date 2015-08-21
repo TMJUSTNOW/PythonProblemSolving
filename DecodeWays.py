@@ -46,5 +46,7 @@ dict = {
 def decode(message):
   num_ways  = 0
   for i in range(len(message) - 1):
-
+    if int(message[i]) <= 26:
+      num_ways += 1
+      
   return num_ways
